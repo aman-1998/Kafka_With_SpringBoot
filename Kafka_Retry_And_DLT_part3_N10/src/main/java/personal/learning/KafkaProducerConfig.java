@@ -19,27 +19,7 @@ public class KafkaProducerConfig {
 	
 	@Bean
 	public NewTopic topic() {
-		return new NewTopic("TestTopic2", 3, (short)1);
-	}
-	
-	@Bean
-	public NewTopic retryTopic0() {
-		return new NewTopic("TestTopic2-retry-0", 3, (short)1);
-	}
-	
-	@Bean
-	public NewTopic retryTopic1() {
-		return new NewTopic("TestTopic2-retry-1", 3, (short)1);
-	}
-	
-	@Bean
-	public NewTopic retryTopic2() {
-		return new NewTopic("TestTopic2-retry-2", 3, (short)1);
-	}
-	
-	@Bean
-	public NewTopic dltTopic() {
-		return new NewTopic("TestTopic2-dlt", 3, (short)1);
+		return new NewTopic("TestTopic5", 3, (short)1);
 	}
 	
 	public ProducerFactory<String, Object> producerFactory() {

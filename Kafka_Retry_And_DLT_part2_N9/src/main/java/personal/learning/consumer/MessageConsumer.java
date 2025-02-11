@@ -13,6 +13,18 @@ import org.springframework.retry.annotation.Backoff;
 import personal.learning.dto.Customer;
 
 /*
+ * autoStartup = "true" is very important here as it ensures retry and DLT topics and groups are created.
+ * 
+ * If autoStartup = "false" then even after manually starting listener, the groups will be created only 
+ * for those topics which are mentioned in @KafkaListener and not for retry & DLT topics.
+ * 
+ * autoStartup = "" then before stopping the listener if we get at least one message in retry topic then groups
+ * for retry & DLT topic will be created. But if we stop the listener before getting a message in retry topic
+ * then even after manually starting listener, the groups will be created only for those topics which are 
+ * mentioned in @KafkaListener and not for retry & DLT topics. 
+ */
+
+/*
  * When an exception occurred then the if message went to partition 1 of main topic then that particular
  * message is routed to same partition of retry topic. So, when partition count of retry topic does not 
  * match with partition count of main topic then Kafka won't be able to route the message to the same
@@ -32,7 +44,7 @@ public class MessageConsumer {
 		    		backoff = @Backoff(delay = 2000, multiplier = 2), /* 2s, 4s, 8s */
 		    		numPartitions = "3", // partition count should match with main topic's partition count
 		    		replicationFactor = "1") // replicationFactor should match with main topic's replicationFactor
-	@KafkaListener(id = "myListener", topics = "TestTopic4", groupId = "group3", autoStartup = "true")
+	@KafkaListener(id = "myListener", topics = "TestTopic4", groupId = "group4", autoStartup = "true")
 	public void consume(Customer message, @Header(name = KafkaHeaders.RECEIVED_TOPIC, required = false) String topic, 
 										  @Header(name = KafkaHeaders.RECEIVED_PARTITION, required = false) int partition,
 										  @Header(name = KafkaHeaders.OFFSET, required = false) long offset) {

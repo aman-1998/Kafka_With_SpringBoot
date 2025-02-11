@@ -15,7 +15,7 @@ public class MessagePublisher {
 	
 	public void sendMessage(Customer message) {
 		
-		CompletableFuture<SendResult<String, Object>> future = kafkaTemplate.send("TestTopic2", message);
+		CompletableFuture<SendResult<String, Object>> future = kafkaTemplate.send("TestTopic5", message);
 		future.whenComplete((result, ex) -> {
 			if(ex == null) {
 				System.out.println("~~~~~~> Sent message: " + message);
