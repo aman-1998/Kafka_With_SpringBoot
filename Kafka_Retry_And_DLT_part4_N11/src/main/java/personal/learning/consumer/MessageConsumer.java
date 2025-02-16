@@ -37,6 +37,11 @@ import personal.learning.dto.Customer;
  */
 
 /*
+ * topicPartitions = {@TopicPartition(topic = "${test.topic.name2}", partitions = {"1"})}  ==> Never use topic partition
+ * in case of retry and DLT. Behavior will be unexpected
+ */
+
+/*
  * Note:
  * -----
  * idIsGroup=false => When groupId is not provided, use the id (if provided) as the group.id property 
@@ -44,6 +49,7 @@ import personal.learning.dto.Customer;
  * If groupId is not provided in @KafkaListener then the group provided in consumer-factory will be 
  * the group for main as well as retry and DLT topics. 
  */
+
 public class MessageConsumer {
 	
 	@RetryableTopic(attempts = "4",

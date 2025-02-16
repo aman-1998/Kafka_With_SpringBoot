@@ -23,6 +23,12 @@ import personal.learning.dto.Customer;
  * then even after manually starting listener, the groups will be created only for those topics which are 
  * mentioned in @KafkaListener and not for retry & DLT topics. 
  */
+
+/*
+ * topicPartitions = {@TopicPartition(topic = "${test.topic.name2}", partitions = {"1"})}  ==> Never use topic partition
+ * in case of retry and DLT. Behavior will be unexpected
+ */
+
 public class MessageConsumer {
 	
 	@RetryableTopic(attempts = "4",

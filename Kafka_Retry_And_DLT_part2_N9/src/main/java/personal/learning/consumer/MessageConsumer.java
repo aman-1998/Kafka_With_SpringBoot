@@ -38,6 +38,11 @@ import personal.learning.dto.Customer;
  * is applicable for replicas as well.
  */
 
+/*
+ * topicPartitions = {@TopicPartition(topic = "${test.topic.name2}", partitions = {"1"})}  ==> Never use topic partition
+ * in case of retry and DLT. Behavior will be unexpected
+ */
+
 public class MessageConsumer {
 	
 	@RetryableTopic(attempts = "4",

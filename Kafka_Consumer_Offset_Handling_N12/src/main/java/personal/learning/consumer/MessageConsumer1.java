@@ -1,93 +1,68 @@
 package personal.learning.consumer;
 
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
-import org.apache.kafka.clients.consumer.ConsumerRecord;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.kafka.annotation.DltHandler;
 import org.springframework.kafka.annotation.KafkaListener;
-import org.springframework.kafka.annotation.RetryableTopic;
-import org.springframework.kafka.annotation.TopicPartition;
-import org.springframework.kafka.listener.ContainerProperties.AckMode;
-import org.springframework.kafka.retrytopic.TopicSuffixingStrategy;
 import org.springframework.kafka.support.Acknowledgment;
 import org.springframework.kafka.support.KafkaHeaders;
 import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.messaging.handler.annotation.Headers;
-import org.springframework.retry.annotation.Backoff;
 
 import personal.learning.dto.Customer;
+
 /*
- * autoStartup = "true" is very important here as it ensures retry and DLT topics and groups are created.
- * 
- * If autoStartup = "false" then even after manually starting listener, the groups will be created only 
- * for those topics which are mentioned in @KafkaListener and not for retry & DLT topics.
- * 
- * autoStartup = "" then before stopping the listener if we get at least one message in retry topic then groups
- * for retry & DLT topic will be created. But if we stop the listener before getting a message in retry topic
- * then even after manually starting listener, the groups will be created only for those topics which are 
- * mentioned in @KafkaListener and not for retry & DLT topics. 
+ * auto.offset.reset is only applied if there are no committed offsets for the group.
  */
 
 /*
- * When an exception occurred then the if message went to partition 1 of main topic then that particular
- * message is routed to same partition of retry topic. So, when partition count of retry topic does not 
- * match with partition count of main topic then Kafka won't be able to route the message to the same
- * partition of retry topic. And then Kafka will dynamically determine the partition for retry topic.
- * Kafka's default partitioner ensures that messages are routed to valid partitions, even if the 
- * partition counts do not match.
+ * autoStartup = "false" ==> Because we want to test auto-offset-reset latest/earliest/none behavior.
+ * And also retry and DLT related code is not there because we want autoStartup = "false"
+ */
+
+/*
+ * auto.offset.reset = latest ==> If there are no committed offsets, then consumer will skip messages 
+ * which are already produced in the topic before consumer starts. The consumer will consume only 
+ * those message which arrive after the consumer started. The consumption of message will be in FIFO order.
  * 
- * So, ultimately retry mechanism will work but efficiency will be reduced because of uneven load distribution.
+ * auto.offset.reset = earliest ==> If there are no committed offsets, then consumer will consume messages 
+ * which are already produced in the topic before consumer starts. The consumer will also consume 
+ * those message which arrive after the consumer started. The consumption of message will be in FIFO order.
+ * 
+ * auto.offset.reset = none ==> If there are no committed offsets, the consumer will fail immediately with 
+ * an error instead of consuming from the beginning or the latest position.
+ * 
+ * 
+ * Note:
+ * -----
+ * If there is at least one committed offset then auto.offset.reset is not applicable. In that case messages 
+ * will be consumed in FIFO order starting from last committed offset.
  *
- * So, partition count of retry topic should match with main topic's partition count. The same concept 
- * is applicable for replicas as well.
- */
-
-/*
- * topicPartitions = {@TopicPartition(topic = "${test.topic.name1}", partitions = {"0"})}  ==> Never use topic partition
- * in case of retry and DLT
  */
 
 public class MessageConsumer1 {
-	
-	@RetryableTopic(attempts = "4",
-		    		backoff = @Backoff(delay = 2000, multiplier = 2), /* 2s, 4s, 8s */ 
-		    		autoCreateTopics = "true",
-		    		retryTopicSuffix = "-retry", dltTopicSuffix = "-dlt",
-		    		numPartitions = "3", replicationFactor = "1",
-		    		topicSuffixingStrategy = TopicSuffixingStrategy.SUFFIX_WITH_INDEX_VALUE)
+
 	@KafkaListener(id = "myListener1", topics = "${test.topic.name1}", groupId = "${test.group.name1}", 
-				   autoStartup = "true", containerFactory = "kafkaListenerContainerFactory1")
-				   //topicPartitions = {@TopicPartition(topic = "${test.topic.name1}", partitions = {"0"})} 
-				   
-	public void consume(Customer message, Acknowledgment acknowledgment, @Header(name = KafkaHeaders.RECEIVED_TOPIC, required = false) String topic, 
+				   autoStartup = "false", containerFactory = "kafkaListenerContainerFactory1")
+	public void consume(Customer message, @Header(name = KafkaHeaders.RECEIVED_TOPIC, required = false) String topic, 
 										  @Header(name = KafkaHeaders.RECEIVED_PARTITION, required = false) int partition,
-										  @Header(name = KafkaHeaders.OFFSET, required = false) long offset,
-										  @Headers Map<String, Object> header) {
+										  @Header(name = KafkaHeaders.OFFSET, required = false) long offset) {
+										  // @Headers Map<String, Object> header) {
 		System.out.println("====> Message received by cosumer1: " + message);
 		System.out.println("====> Source topic : " + topic);
 		System.out.println("====> Source partition : " + partition);
 		System.out.println("====> Source offset : " + offset);
-		System.out.println("====> Message header : " + header);
 		try {
 			if(message.getId() == 111) {
 				throw new RuntimeException("Invalid Id provided in consumer1");
 			}
 			
-			acknowledgment.acknowledge();
+			TimeUnit.SECONDS.sleep(20); // Processing of message takes
+			
 		} catch(Exception ex) {
 			System.out.println("An exception occurred in consumer1:" + ex.getMessage());
 			throw new RuntimeException("An exception occurred in consumer1:" + ex.getMessage());
 		}
-	}
-	
-	@DltHandler
-	public void listenDLT(ConsumerRecord<String, Customer> record) {
-	    System.out.println("------> Message received from DLT by consumer1: " + record.value());
-	    System.out.println("------> Source Topic : " + record.topic());
-	    System.out.println("------> Source Partition : " + record.partition());
-	    System.out.println("------> Source Offset : " + record.offset());
-	    System.out.println("------> Headers : " + record.headers());
 	}
 
 }

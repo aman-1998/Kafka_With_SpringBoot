@@ -35,6 +35,12 @@ import personal.learning.dto.Customer;
  * So, partition count of retry topic should match with main topic's partition count. The same concept 
  * is applicable for replicas as well.
  */
+
+/*
+ * topicPartitions = {@TopicPartition(topic = "${test.topic.name2}", partitions = {"1"})}  ==> Never use topic partition
+ * in case of retry and DLT. Behavior will be unexpected
+ */
+
 public class MessageConsumer {
 	
 	@RetryableTopic(attempts = "4",
