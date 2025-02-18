@@ -1,13 +1,11 @@
 package personal.learning.consumer;
 
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.support.Acknowledgment;
 import org.springframework.kafka.support.KafkaHeaders;
 import org.springframework.messaging.handler.annotation.Header;
-import org.springframework.messaging.handler.annotation.Headers;
 
 import personal.learning.dto.Customer;
 
@@ -58,8 +56,9 @@ public class MessageConsumer1 {
 				throw new RuntimeException("Invalid Id provided in consumer1");
 			}
 			
-			TimeUnit.SECONDS.sleep(20); // Processing of message takes
+			TimeUnit.SECONDS.sleep(5); // Processing of message takes 5 secs
 			
+			// offset committed immediately
 			acknowledgment.acknowledge();
 		} catch(Exception ex) {
 			System.out.println("An exception occurred in consumer1:" + ex.getMessage());

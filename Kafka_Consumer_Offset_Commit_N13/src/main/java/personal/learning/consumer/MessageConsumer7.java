@@ -38,33 +38,33 @@ import personal.learning.dto.Customer;
  *
  */
 
-public class MessageConsumer3 {
+public class MessageConsumer7 {
 	
-	@KafkaListener(id = "myListener3", topics = "${test.topic.name3}", groupId = "${test.group.name3}", 
-				   autoStartup = "false", containerFactory = "kafkaListenerContainerFactory3")
+	@KafkaListener(id = "myListener7", topics = "${test.topic.name7}", groupId = "${test.group.name7}", 
+				   autoStartup = "false", containerFactory = "kafkaListenerContainerFactory7")
 	public void consume(Customer message, Acknowledgment acknowledgment, 
 										  @Header(name = KafkaHeaders.RECEIVED_TOPIC, required = false) String topic, 
 										  @Header(name = KafkaHeaders.RECEIVED_PARTITION, required = false) int partition,
 										  @Header(name = KafkaHeaders.OFFSET, required = false) long offset) {
 										  // @Headers Map<String, Object> header) {
-		System.out.println("====> Message received by cosumer3: " + message);
+		System.out.println("====> Message received by cosumer7: " + message);
 		System.out.println("====> Source topic : " + topic);
 		System.out.println("====> Source partition : " + partition);
 		System.out.println("====> Source offset : " + offset);
 		try {
 			if(message.getId() == 111) {
-				throw new RuntimeException("Invalid Id provided in consumer3");
+				throw new RuntimeException("Invalid Id provided in consumer7");
 			}
 			
-			TimeUnit.SECONDS.sleep(5); // Processing of message takes 5 secs
+			TimeUnit.SECONDS.sleep(3); // Processing of message takes 3 secs
 			
-			/* 
-			 * Spring Kafka will commit automatically after each message is processd successfully.
+			/*
+			 * Spring kafka will commit When the configured number of messages have been processed.
+			 * OR when the specified time interval has elapsed, whichever happens first.
 			 */
-		
 		} catch(Exception ex) {
-			System.out.println("An exception occurred in consumer3:" + ex.getMessage());
-			throw new RuntimeException("An exception occurred in consumer3:" + ex.getMessage());
+			System.out.println("An exception occurred in consumer7:" + ex.getMessage());
+			throw new RuntimeException("An exception occurred in consumer7:" + ex.getMessage());
 		}
 	}
 	

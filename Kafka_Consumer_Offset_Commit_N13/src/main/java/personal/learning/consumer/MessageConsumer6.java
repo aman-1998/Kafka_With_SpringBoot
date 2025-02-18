@@ -38,33 +38,31 @@ import personal.learning.dto.Customer;
  *
  */
 
-public class MessageConsumer3 {
+public class MessageConsumer6 {
 	
-	@KafkaListener(id = "myListener3", topics = "${test.topic.name3}", groupId = "${test.group.name3}", 
-				   autoStartup = "false", containerFactory = "kafkaListenerContainerFactory3")
+	@KafkaListener(id = "myListener6", topics = "${test.topic.name6}", groupId = "${test.group.name6}", 
+				   autoStartup = "false", containerFactory = "kafkaListenerContainerFactory6")
 	public void consume(Customer message, Acknowledgment acknowledgment, 
 										  @Header(name = KafkaHeaders.RECEIVED_TOPIC, required = false) String topic, 
 										  @Header(name = KafkaHeaders.RECEIVED_PARTITION, required = false) int partition,
 										  @Header(name = KafkaHeaders.OFFSET, required = false) long offset) {
 										  // @Headers Map<String, Object> header) {
-		System.out.println("====> Message received by cosumer3: " + message);
+		System.out.println("====> Message received by cosumer6: " + message);
 		System.out.println("====> Source topic : " + topic);
 		System.out.println("====> Source partition : " + partition);
 		System.out.println("====> Source offset : " + offset);
 		try {
 			if(message.getId() == 111) {
-				throw new RuntimeException("Invalid Id provided in consumer3");
+				throw new RuntimeException("Invalid Id provided in consumer6");
 			}
 			
-			TimeUnit.SECONDS.sleep(5); // Processing of message takes 5 secs
+			TimeUnit.SECONDS.sleep(3); // Processing of message takes 3 secs
 			
-			/* 
-			 * Spring Kafka will commit automatically after each message is processd successfully.
-			 */
-		
+			// Spring kafka will commit automatically after specified time
+			
 		} catch(Exception ex) {
-			System.out.println("An exception occurred in consumer3:" + ex.getMessage());
-			throw new RuntimeException("An exception occurred in consumer3:" + ex.getMessage());
+			System.out.println("An exception occurred in consumer6:" + ex.getMessage());
+			throw new RuntimeException("An exception occurred in consumer6:" + ex.getMessage());
 		}
 	}
 	

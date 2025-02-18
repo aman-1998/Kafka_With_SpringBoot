@@ -52,4 +52,52 @@ public class KafkaController {
 								 .build();
 		}
 	}
+	
+	@PostMapping("/send3")
+	public ResponseEntity<?> send4(@RequestBody Customer customer) {
+		try {
+			System.out.println("Customer -> " + customer);
+			messagePublisher.sendMessage4(customer);
+			return ResponseEntity.ok("Message sent successfully...");
+		} catch(Exception ex) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+								 .build();
+		}
+	}
+	
+	@PostMapping("/send3")
+	public ResponseEntity<?> send5(@RequestBody Customer customer) {
+		try {
+			System.out.println("Customer -> " + customer);
+			messagePublisher.sendMessage5(customer);
+			return ResponseEntity.ok("Message sent successfully...");
+		} catch(Exception ex) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+								 .build();
+		}
+	}
+	
+	@PostMapping("/send3")
+	public ResponseEntity<?> send6(@RequestBody Customer customer) {
+		try {
+			System.out.println("Customer -> " + customer);
+			messagePublisher.sendMessage6(customer);
+			return ResponseEntity.ok("Message sent successfully...");
+		} catch(Exception ex) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+								 .build();
+		}
+	}
+	
+	@PostMapping("/send3")
+	public ResponseEntity<?> send7(@RequestBody Customer customer) {
+		try {
+			System.out.println("Customer -> " + customer);
+			messagePublisher.sendMessage7(customer);
+			return ResponseEntity.ok("Message sent successfully...");
+		} catch(Exception ex) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+								 .build();
+		}
+	}
 }

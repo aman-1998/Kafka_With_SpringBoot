@@ -2,46 +2,25 @@ package personal.learning.consumer;
 
 import java.util.concurrent.TimeUnit;
 
-import org.apache.kafka.clients.consumer.ConsumerRecord;
-import org.springframework.kafka.annotation.DltHandler;
 import org.springframework.kafka.annotation.KafkaListener;
-import org.springframework.kafka.annotation.RetryableTopic;
-import org.springframework.kafka.annotation.TopicPartition;
-import org.springframework.kafka.retrytopic.TopicSuffixingStrategy;
 import org.springframework.kafka.support.Acknowledgment;
 import org.springframework.kafka.support.KafkaHeaders;
 import org.springframework.messaging.handler.annotation.Header;
-import org.springframework.retry.annotation.Backoff;
 
 import personal.learning.dto.Customer;
 
 /*
- * auto.offset.reset is only applied if there are no committed offsets for the group.
- */
-
-/*
- * autoStartup = "false" ==> Because we want to test auto-offset-reset latest/earliest/none behavior.
- * And also retry and DLT related code is not there because we want autoStartup = "false"
- */
-
-/*
- * auto.offset.reset = latest ==> If there are no committed offsets, then consumer will skip messages 
- * which are already produced in the topic before consumer starts. The consumer will consume only 
- * those message which arrive after the consumer started. The consumption of message will be in FIFO order.
+ * AckMode.MANUAL
+ * ---------------
+ * Behavior: When using AckMode.MANUAL, the offset is not committed immediately when 
+ * Acknowledgment.acknowledge() is called. Instead, the commit is deferred and performed asynchronously 
+ * by the Kafka consumer.
  * 
- * auto.offset.reset = earliest ==> If there are no committed offsets, then consumer will consume messages 
- * which are already produced in the topic before consumer starts. The consumer will also consume 
- * those message which arrive after the consumer started. The consumption of message will be in FIFO order.
+ * Use Case: This mode is useful when you want to batch multiple offset commits for better performance, 
+ * especially in high-throughput systems.
  * 
- * auto.offset.reset = none ==> If there are no committed offsets, the consumer will fail immediately with 
- * an error instead of consuming from the beginning or the latest position.
- * 
- * 
- * Note:
- * -----
- * If there is at least one committed offset then auto.offset.reset is not applicable. In that case messages 
- * will be consumed in FIFO order starting from last committed offset.
- *
+ * Commit Timing: The actual commit happens when the Kafka consumer's internal logic decides to perform 
+ * the commit (e.g., during the next poll cycle).
  */
 
 public class MessageConsumer2 {
@@ -62,8 +41,14 @@ public class MessageConsumer2 {
 				throw new RuntimeException("Invalid Id provided in consumer2");
 			}
 			
-			TimeUnit.SECONDS.sleep(20); // Processing of message takes
+			TimeUnit.SECONDS.sleep(5); // Processing of message takes 5 secs
 			
+			/*
+			 * Offset is not committed immediately.
+			 * 
+			 * Offset is committed asynchronously as per Kafka's internal mechanism/logic
+			 * For eg., before next polling or before consumer shutdown, etc
+			 */
 			acknowledgment.acknowledge();
 		} catch(Exception ex) {
 			System.out.println("An exception occurred in consumer2:" + ex.getMessage());

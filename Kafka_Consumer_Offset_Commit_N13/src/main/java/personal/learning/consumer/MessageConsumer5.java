@@ -1,5 +1,6 @@
 package personal.learning.consumer;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.springframework.kafka.annotation.KafkaListener;
@@ -38,33 +39,32 @@ import personal.learning.dto.Customer;
  *
  */
 
-public class MessageConsumer3 {
+public class MessageConsumer5 {
 	
-	@KafkaListener(id = "myListener3", topics = "${test.topic.name3}", groupId = "${test.group.name3}", 
-				   autoStartup = "false", containerFactory = "kafkaListenerContainerFactory3")
-	public void consume(Customer message, Acknowledgment acknowledgment, 
+	@KafkaListener(id = "myListener5", topics = "${test.topic.name5}", groupId = "${test.group.name5}", 
+				   autoStartup = "false", containerFactory = "kafkaListenerContainerFactory5")
+	public void consume(List<Customer> messages, Acknowledgment acknowledgment, 
 										  @Header(name = KafkaHeaders.RECEIVED_TOPIC, required = false) String topic, 
 										  @Header(name = KafkaHeaders.RECEIVED_PARTITION, required = false) int partition,
 										  @Header(name = KafkaHeaders.OFFSET, required = false) long offset) {
 										  // @Headers Map<String, Object> header) {
-		System.out.println("====> Message received by cosumer3: " + message);
+		System.out.println("====> Message received by cosumer5: " + messages.toString());
 		System.out.println("====> Source topic : " + topic);
 		System.out.println("====> Source partition : " + partition);
 		System.out.println("====> Source offset : " + offset);
 		try {
-			if(message.getId() == 111) {
-				throw new RuntimeException("Invalid Id provided in consumer3");
+			for(Customer customer : messages) {
+				if(customer.getId() == 111) {
+					throw new RuntimeException("Invalid Id provided in consumer5");
+				}
+				TimeUnit.SECONDS.sleep(3); // Processing of message takes 3 secs
 			}
 			
-			TimeUnit.SECONDS.sleep(5); // Processing of message takes 5 secs
+			// Offset is automatically committed after processing 'ackCount' records
 			
-			/* 
-			 * Spring Kafka will commit automatically after each message is processd successfully.
-			 */
-		
 		} catch(Exception ex) {
-			System.out.println("An exception occurred in consumer3:" + ex.getMessage());
-			throw new RuntimeException("An exception occurred in consumer3:" + ex.getMessage());
+			System.out.println("An exception occurred in consumer5:" + ex.getMessage());
+			throw new RuntimeException("An exception occurred in consumer5:" + ex.getMessage());
 		}
 	}
 	

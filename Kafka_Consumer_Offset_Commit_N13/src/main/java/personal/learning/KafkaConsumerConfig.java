@@ -23,7 +23,7 @@ import org.springframework.util.backoff.FixedBackOff;
 public class KafkaConsumerConfig {
 	
 	@Bean
-    public ConsumerFactory<String, Object> consumerFactory1() {
+    public ConsumerFactory<String, Object> consumerFactory() {
         Map<String, Object> props = new HashMap<>();
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
@@ -35,35 +35,24 @@ public class KafkaConsumerConfig {
     }
 	
 	@Bean
-    public ConsumerFactory<String, Object> consumerFactory2() {
+    public ConsumerFactory<String, Object> consumerFactoryForBatch() {
         Map<String, Object> props = new HashMap<>();
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
-        props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
+        props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "latest");
         props.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "false"); // Disable auto-commit
-        props.put(JsonDeserializer.TRUSTED_PACKAGES, "personal.learning.dto");
-        return new DefaultKafkaConsumerFactory<>(props);
-    }
-	
-	@Bean
-    public ConsumerFactory<String, Object> consumerFactory3() {
-        Map<String, Object> props = new HashMap<>();
-        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
-        props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-        props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
-        props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "none");
-        props.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "false"); // Disable auto-commit
+        props.put(ConsumerConfig.MAX_POLL_RECORDS_CONFIG, "10"); // Set batch size to 10 records
         props.put(JsonDeserializer.TRUSTED_PACKAGES, "personal.learning.dto");
         return new DefaultKafkaConsumerFactory<>(props);
     }
     
     @Bean
     public KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<String, Object>> kafkaListenerContainerFactory1(
-    		ConsumerFactory<String, Object> consumerFactory1, KafkaTemplate<String, Object> kafkaTemplate) {
+    		ConsumerFactory<String, Object> consumerFactory, KafkaTemplate<String, Object> kafkaTemplate) {
         
         ConcurrentKafkaListenerContainerFactory<String, Object> factory = new ConcurrentKafkaListenerContainerFactory<>();
-        factory.setConsumerFactory(consumerFactory1);
+        factory.setConsumerFactory(consumerFactory);
 
         // Error handler to handle retries and send failed messages to DLT
         DefaultErrorHandler errorHandler = new DefaultErrorHandler(
@@ -79,10 +68,10 @@ public class KafkaConsumerConfig {
     
     @Bean
     public KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<String, Object>> kafkaListenerContainerFactory2(
-    		ConsumerFactory<String, Object> consumerFactory2, KafkaTemplate<String, Object> kafkaTemplate) {
+    		ConsumerFactory<String, Object> consumerFactory, KafkaTemplate<String, Object> kafkaTemplate) {
         
         ConcurrentKafkaListenerContainerFactory<String, Object> factory = new ConcurrentKafkaListenerContainerFactory<>();
-        factory.setConsumerFactory(consumerFactory2);
+        factory.setConsumerFactory(consumerFactory);
 
         // Error handler to handle retries and send failed messages to DLT
         DefaultErrorHandler errorHandler = new DefaultErrorHandler(
@@ -92,16 +81,16 @@ public class KafkaConsumerConfig {
 
         factory.setCommonErrorHandler(errorHandler);
         
-        factory.getContainerProperties().setAckMode(ContainerProperties.AckMode.MANUAL_IMMEDIATE);
+        factory.getContainerProperties().setAckMode(ContainerProperties.AckMode.MANUAL);
         return factory;
     }
     
     @Bean
     public KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<String, Object>> kafkaListenerContainerFactory3(
-    		ConsumerFactory<String, Object> consumerFactory3, KafkaTemplate<String, Object> kafkaTemplate) {
+    		ConsumerFactory<String, Object> consumerFactory, KafkaTemplate<String, Object> kafkaTemplate) {
         
         ConcurrentKafkaListenerContainerFactory<String, Object> factory = new ConcurrentKafkaListenerContainerFactory<>();
-        factory.setConsumerFactory(consumerFactory3);
+        factory.setConsumerFactory(consumerFactory);
 
         // Error handler to handle retries and send failed messages to DLT
         DefaultErrorHandler errorHandler = new DefaultErrorHandler(
@@ -110,7 +99,84 @@ public class KafkaConsumerConfig {
         );
 
         factory.setCommonErrorHandler(errorHandler);
-        factory.getContainerProperties().setAckMode(ContainerProperties.AckMode.MANUAL_IMMEDIATE);
+        factory.getContainerProperties().setAckMode(ContainerProperties.AckMode.RECORD);
+        return factory;
+    }
+    
+    @Bean
+    public KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<String, Object>> kafkaListenerContainerFactory4(
+    		ConsumerFactory<String, Object> consumerFactory, KafkaTemplate<String, Object> kafkaTemplate) {
+        
+        ConcurrentKafkaListenerContainerFactory<String, Object> factory = new ConcurrentKafkaListenerContainerFactory<>();
+        factory.setConsumerFactory(consumerFactory);
+
+        // Error handler to handle retries and send failed messages to DLT
+        DefaultErrorHandler errorHandler = new DefaultErrorHandler(
+                new DeadLetterPublishingRecoverer(kafkaTemplate), 
+                new FixedBackOff(2000, 3) // 3 retry attempts with a 2-second delay
+        );
+
+        factory.setCommonErrorHandler(errorHandler);
+        factory.getContainerProperties().setAckMode(ContainerProperties.AckMode.COUNT);
+        factory.getContainerProperties().setAckCount(5); // Commit offsets after processing 5 records
+        return factory;
+    }
+    
+    @Bean
+    public KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<String, Object>> kafkaListenerContainerFactory5(
+    		ConsumerFactory<String, Object> consumerFactoryForBatch, KafkaTemplate<String, Object> kafkaTemplate) {
+        
+        ConcurrentKafkaListenerContainerFactory<String, Object> factory = new ConcurrentKafkaListenerContainerFactory<>();
+        factory.setConsumerFactory(consumerFactoryForBatch);
+
+        // Error handler to handle retries and send failed messages to DLT
+        DefaultErrorHandler errorHandler = new DefaultErrorHandler(
+                new DeadLetterPublishingRecoverer(kafkaTemplate), 
+                new FixedBackOff(2000, 3) // 3 retry attempts with a 2-second delay
+        );
+
+        factory.setCommonErrorHandler(errorHandler);
+        factory.getContainerProperties().setAckMode(ContainerProperties.AckMode.BATCH);
+        return factory;
+    }
+    
+    @Bean
+    public KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<String, Object>> kafkaListenerContainerFactory6(
+    		ConsumerFactory<String, Object> consumerFactory, KafkaTemplate<String, Object> kafkaTemplate) {
+        
+        ConcurrentKafkaListenerContainerFactory<String, Object> factory = new ConcurrentKafkaListenerContainerFactory<>();
+        factory.setConsumerFactory(consumerFactory);
+
+        // Error handler to handle retries and send failed messages to DLT
+        DefaultErrorHandler errorHandler = new DefaultErrorHandler(
+                new DeadLetterPublishingRecoverer(kafkaTemplate), 
+                new FixedBackOff(2000, 3) // 3 retry attempts with a 2-second delay
+        );
+
+        factory.setCommonErrorHandler(errorHandler);
+        factory.getContainerProperties().setAckMode(ContainerProperties.AckMode.TIME);
+        factory.getContainerProperties().setAckTime(5000L); // commit in every 5 seconds
+        return factory;
+    }
+    
+    @Bean
+    public KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<String, Object>> kafkaListenerContainerFactory7(
+    		ConsumerFactory<String, Object> consumerFactory, KafkaTemplate<String, Object> kafkaTemplate) {
+        
+        ConcurrentKafkaListenerContainerFactory<String, Object> factory = new ConcurrentKafkaListenerContainerFactory<>();
+        factory.setConsumerFactory(consumerFactory);
+
+        // Error handler to handle retries and send failed messages to DLT
+        DefaultErrorHandler errorHandler = new DefaultErrorHandler(
+                new DeadLetterPublishingRecoverer(kafkaTemplate), 
+                new FixedBackOff(2000, 3) // 3 retry attempts with a 2-second delay
+        );
+
+        factory.setCommonErrorHandler(errorHandler);
+        factory.getContainerProperties().setAckMode(ContainerProperties.AckMode.COUNT_TIME);
+        // Commit after 10 messages or every 5 seconds, whichever comes first
+        factory.getContainerProperties().setAckCount(10);  // Commit after 10 messages
+        factory.getContainerProperties().setAckTime(5000L); // Commit every 5 seconds
         return factory;
     }
 }
