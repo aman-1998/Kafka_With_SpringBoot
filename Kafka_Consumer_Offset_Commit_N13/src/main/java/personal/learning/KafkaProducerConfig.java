@@ -26,6 +26,18 @@ public class KafkaProducerConfig {
 	@Value("${test.topic.name3}")
 	private String topic3;
 	
+	@Value("${test.topic.name4}")
+	private String topic4;
+	
+	@Value("${test.topic.name5}")
+	private String topic5;
+	
+	@Value("${test.topic.name6}")
+	private String topic6;
+	
+	@Value("${test.topic.name7}")
+	private String topic7;
+	
 	@Bean
 	public NewTopic topic1() {
 		return new NewTopic(topic1, 3, (short)1);
@@ -39,6 +51,26 @@ public class KafkaProducerConfig {
 	@Bean
 	public NewTopic topic3() {
 		return new NewTopic(topic3, 3, (short)1);
+	}
+	
+	@Bean
+	public NewTopic topic4() {
+		return new NewTopic(topic4, 3, (short)1);
+	}
+	
+	@Bean
+	public NewTopic topic5() {
+		return new NewTopic(topic5, 3, (short)1);
+	}
+	
+	@Bean
+	public NewTopic topic6() {
+		return new NewTopic(topic6, 3, (short)1);
+	}
+	
+	@Bean
+	public NewTopic topic7() {
+		return new NewTopic(topic7, 3, (short)1);
 	}
 	
 	public ProducerFactory<String, Object> producerFactory() {

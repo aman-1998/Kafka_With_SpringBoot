@@ -42,8 +42,7 @@ public class MessageConsumer3 {
 	
 	@KafkaListener(id = "myListener3", topics = "${test.topic.name3}", groupId = "${test.group.name3}", 
 				   autoStartup = "false", containerFactory = "kafkaListenerContainerFactory3")
-	public void consume(Customer message, Acknowledgment acknowledgment, 
-										  @Header(name = KafkaHeaders.RECEIVED_TOPIC, required = false) String topic, 
+	public void consume(Customer message, @Header(name = KafkaHeaders.RECEIVED_TOPIC, required = false) String topic, 
 										  @Header(name = KafkaHeaders.RECEIVED_PARTITION, required = false) int partition,
 										  @Header(name = KafkaHeaders.OFFSET, required = false) long offset) {
 										  // @Headers Map<String, Object> header) {
@@ -56,11 +55,10 @@ public class MessageConsumer3 {
 				throw new RuntimeException("Invalid Id provided in consumer3");
 			}
 			
-			TimeUnit.SECONDS.sleep(5); // Processing of message takes 5 secs
+			TimeUnit.SECONDS.sleep(4); // Processing of message takes 4 secs
 			
-			/* 
-			 * Spring Kafka will commit automatically after each message is processd successfully.
-			 */
+			 // Spring Kafka will commit automatically after each message is processed successfully.
+			 
 		
 		} catch(Exception ex) {
 			System.out.println("An exception occurred in consumer3:" + ex.getMessage());

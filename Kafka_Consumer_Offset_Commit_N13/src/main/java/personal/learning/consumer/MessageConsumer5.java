@@ -43,11 +43,10 @@ public class MessageConsumer5 {
 	
 	@KafkaListener(id = "myListener5", topics = "${test.topic.name5}", groupId = "${test.group.name5}", 
 				   autoStartup = "false", containerFactory = "kafkaListenerContainerFactory5")
-	public void consume(List<Customer> messages, Acknowledgment acknowledgment, 
-										  @Header(name = KafkaHeaders.RECEIVED_TOPIC, required = false) String topic, 
-										  @Header(name = KafkaHeaders.RECEIVED_PARTITION, required = false) int partition,
-										  @Header(name = KafkaHeaders.OFFSET, required = false) long offset) {
-										  // @Headers Map<String, Object> header) {
+	public void consume(List<Customer> messages, @Header(name = KafkaHeaders.RECEIVED_TOPIC, required = false) String topic, 
+										  		 @Header(name = KafkaHeaders.RECEIVED_PARTITION, required = false) int partition,
+										  		 @Header(name = KafkaHeaders.OFFSET, required = false) long offset) {
+										  		 // @Headers Map<String, Object> header) {
 		System.out.println("====> Message received by cosumer5: " + messages.toString());
 		System.out.println("====> Source topic : " + topic);
 		System.out.println("====> Source partition : " + partition);

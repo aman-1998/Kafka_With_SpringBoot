@@ -42,8 +42,7 @@ public class MessageConsumer7 {
 	
 	@KafkaListener(id = "myListener7", topics = "${test.topic.name7}", groupId = "${test.group.name7}", 
 				   autoStartup = "false", containerFactory = "kafkaListenerContainerFactory7")
-	public void consume(Customer message, Acknowledgment acknowledgment, 
-										  @Header(name = KafkaHeaders.RECEIVED_TOPIC, required = false) String topic, 
+	public void consume(Customer message, @Header(name = KafkaHeaders.RECEIVED_TOPIC, required = false) String topic, 
 										  @Header(name = KafkaHeaders.RECEIVED_PARTITION, required = false) int partition,
 										  @Header(name = KafkaHeaders.OFFSET, required = false) long offset) {
 										  // @Headers Map<String, Object> header) {
@@ -56,7 +55,7 @@ public class MessageConsumer7 {
 				throw new RuntimeException("Invalid Id provided in consumer7");
 			}
 			
-			TimeUnit.SECONDS.sleep(3); // Processing of message takes 3 secs
+			TimeUnit.SECONDS.sleep(2); // Processing of message takes 3 secs
 			
 			/*
 			 * Spring kafka will commit When the configured number of messages have been processed.

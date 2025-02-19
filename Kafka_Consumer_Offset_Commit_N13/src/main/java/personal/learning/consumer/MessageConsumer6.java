@@ -42,8 +42,7 @@ public class MessageConsumer6 {
 	
 	@KafkaListener(id = "myListener6", topics = "${test.topic.name6}", groupId = "${test.group.name6}", 
 				   autoStartup = "false", containerFactory = "kafkaListenerContainerFactory6")
-	public void consume(Customer message, Acknowledgment acknowledgment, 
-										  @Header(name = KafkaHeaders.RECEIVED_TOPIC, required = false) String topic, 
+	public void consume(Customer message, @Header(name = KafkaHeaders.RECEIVED_TOPIC, required = false) String topic, 
 										  @Header(name = KafkaHeaders.RECEIVED_PARTITION, required = false) int partition,
 										  @Header(name = KafkaHeaders.OFFSET, required = false) long offset) {
 										  // @Headers Map<String, Object> header) {
@@ -58,7 +57,7 @@ public class MessageConsumer6 {
 			
 			TimeUnit.SECONDS.sleep(3); // Processing of message takes 3 secs
 			
-			// Spring kafka will commit automatically after specified time
+			// Spring kafka will commit automatically after specified time (ackTime)
 			
 		} catch(Exception ex) {
 			System.out.println("An exception occurred in consumer6:" + ex.getMessage());

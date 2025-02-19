@@ -3,7 +3,6 @@ package personal.learning.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -53,7 +52,7 @@ public class KafkaController {
 		}
 	}
 	
-	@PostMapping("/send3")
+	@PostMapping("/send4")
 	public ResponseEntity<?> send4(@RequestBody Customer customer) {
 		try {
 			System.out.println("Customer -> " + customer);
@@ -65,7 +64,7 @@ public class KafkaController {
 		}
 	}
 	
-	@PostMapping("/send3")
+	@PostMapping("/send5")
 	public ResponseEntity<?> send5(@RequestBody Customer customer) {
 		try {
 			System.out.println("Customer -> " + customer);
@@ -77,7 +76,7 @@ public class KafkaController {
 		}
 	}
 	
-	@PostMapping("/send3")
+	@PostMapping("/send6")
 	public ResponseEntity<?> send6(@RequestBody Customer customer) {
 		try {
 			System.out.println("Customer -> " + customer);
@@ -89,7 +88,7 @@ public class KafkaController {
 		}
 	}
 	
-	@PostMapping("/send3")
+	@PostMapping("/send7")
 	public ResponseEntity<?> send7(@RequestBody Customer customer) {
 		try {
 			System.out.println("Customer -> " + customer);

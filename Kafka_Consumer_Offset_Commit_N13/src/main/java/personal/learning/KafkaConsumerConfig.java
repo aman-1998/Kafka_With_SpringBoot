@@ -174,9 +174,9 @@ public class KafkaConsumerConfig {
 
         factory.setCommonErrorHandler(errorHandler);
         factory.getContainerProperties().setAckMode(ContainerProperties.AckMode.COUNT_TIME);
-        // Commit after 10 messages or every 5 seconds, whichever comes first
-        factory.getContainerProperties().setAckCount(10);  // Commit after 10 messages
-        factory.getContainerProperties().setAckTime(5000L); // Commit every 5 seconds
+        // Commit after 5 messages or every 4 seconds, whichever comes first
+        factory.getContainerProperties().setAckCount(5);  // Commit after 5 messages
+        factory.getContainerProperties().setAckTime(4000L); // Commit every 4 seconds
         return factory;
     }
 }

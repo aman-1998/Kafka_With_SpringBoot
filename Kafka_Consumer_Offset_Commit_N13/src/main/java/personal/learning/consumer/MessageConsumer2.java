@@ -41,7 +41,7 @@ public class MessageConsumer2 {
 				throw new RuntimeException("Invalid Id provided in consumer2");
 			}
 			
-			TimeUnit.SECONDS.sleep(5); // Processing of message takes 5 secs
+			TimeUnit.SECONDS.sleep(4); // Processing of message takes 4 secs
 			
 			/*
 			 * Offset is not committed immediately.
