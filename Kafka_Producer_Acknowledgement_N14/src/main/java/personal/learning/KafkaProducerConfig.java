@@ -57,6 +57,7 @@ public class KafkaProducerConfig {
 		props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 		props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
 		// acks=1: Leader will acknowledge after writing locally
+		// By default ack = 1
         props.put(ProducerConfig.ACKS_CONFIG, "1");
 		return new DefaultKafkaProducerFactory<>(props);
 	}
