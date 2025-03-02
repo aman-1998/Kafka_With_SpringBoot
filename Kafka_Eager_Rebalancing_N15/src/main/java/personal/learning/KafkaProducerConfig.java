@@ -53,7 +53,7 @@ public class KafkaProducerConfig {
 	
 	@Bean
 	public NewTopic topicGamma() {
-		return new NewTopic(topicGamma, 2, (short)1);
+		return new NewTopic(topicGamma, 4, (short)1);
 	}
 	
 	@Bean
@@ -63,7 +63,7 @@ public class KafkaProducerConfig {
 	
 	@Bean
 	public NewTopic topicEpsilon() {
-		return new NewTopic(topicEpsilon, 2, (short)1);
+		return new NewTopic(topicEpsilon, 4, (short)1);
 	}
 	
 	@Bean
@@ -73,7 +73,7 @@ public class KafkaProducerConfig {
 	
 	@Bean
 	public NewTopic topicEta() {
-		return new NewTopic(topicEta, 2, (short)1);
+		return new NewTopic(topicEta, 4, (short)1);
 	}
 	
 	@Bean
