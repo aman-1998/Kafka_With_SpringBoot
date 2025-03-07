@@ -5,11 +5,9 @@ import java.util.concurrent.TimeUnit;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.support.KafkaHeaders;
 import org.springframework.messaging.handler.annotation.Header;
-import org.springframework.stereotype.Component;
 
 import personal.learning.dto.Customer;
 
-@Component
 public class MessageConsumer {
 	
 	@KafkaListener(id = "myListener1", topics = "${test.topic.name}", groupId = "${test.group.name}", 
