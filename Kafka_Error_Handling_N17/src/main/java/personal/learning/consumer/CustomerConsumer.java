@@ -10,8 +10,8 @@ import personal.learning.dto.Customer;
 
 public class CustomerConsumer {
 	
-	@KafkaListener(id = "myListener", topics = "${test.topic.name}", groupId = "${test.group.name}", 
-			   	   autoStartup = "false", containerFactory = "kafkaListenerContainerFactory1",
+	@KafkaListener(id = "myListener1", topics = "${test.topic.customer.name}", groupId = "${test.group.name}", 
+			   	   autoStartup = "false", containerFactory = "kafkaListenerContainerFactory",
 			   	   errorHandler = "customerErrorHandler")
 	public void consume(Customer message, @Header(name = KafkaHeaders.RECEIVED_TOPIC, required = false) String topic, 
 										  @Header(name = KafkaHeaders.RECEIVED_PARTITION, required = false) int partition,

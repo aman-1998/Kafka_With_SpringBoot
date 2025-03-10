@@ -11,7 +11,8 @@ public class CustomerErrorHandler implements ConsumerAwareListenerErrorHandler {
 
 	@Override
 	public Object handleError(Message<?> message, ListenerExecutionFailedException exception, Consumer<?, ?> consumer) {
-		System.out.println("Error occurred while processing the message : " + exception.getMessage());
+		System.out.println(":::::: Error occurred while processing the message "
+					+ "received by CustomerConsumer : " + exception.getMessage());
 		System.out.println("Sending message to Elasticsearch : " + message.getPayload().toString());
 		return null;
 	}

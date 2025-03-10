@@ -20,6 +20,7 @@ import org.springframework.kafka.support.serializer.JsonDeserializer;
 import org.springframework.util.backoff.FixedBackOff;
 
 import personal.learning.dto.Customer;
+import personal.learning.dto.FoodOrder;
 
 @Configuration
 public class KafkaConsumerConfig {
@@ -35,11 +36,18 @@ public class KafkaConsumerConfig {
         
         props.put(JsonDeserializer.TRUSTED_PACKAGES, "personal.learning.dto");
         
+        /* Explicitly set the target type for deserialization
+         * If we don't specify target class explicitly then deserialization will be done by Kafka
+         * based on the method signature of consume method annotated with @KafkaListener.
+         */
+        //return new DefaultKafkaConsumerFactory<>(props, new StringDeserializer(), 
+        //            new JsonDeserializer<>(Customer.class));
+        
         return new DefaultKafkaConsumerFactory<>(props);
     }
     
     @Bean
-    public KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<String, Object>> kafkaListenerContainerFactory1(
+    public KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<String, Object>> kafkaListenerContainerFactory(
     		ConsumerFactory<String, Object> consumerFactory, KafkaTemplate<String, Object> kafkaTemplate) {
         
         ConcurrentKafkaListenerContainerFactory<String, Object> factory = new ConcurrentKafkaListenerContainerFactory<>();
@@ -55,12 +63,20 @@ public class KafkaConsumerConfig {
         factory.getContainerProperties().setAckMode(ContainerProperties.AckMode.RECORD);
         
         factory.setRecordFilterStrategy(consumerRecord -> {
-        	Customer customer = (Customer) consumerRecord.value();
-        	if(customer.getId() < 1000) {
-        		return true;
-        	} else {
+        	if(consumerRecord.value() instanceof Customer) {
+        		Customer customer = (Customer) consumerRecord.value();
+            	if(customer.getId() < 1000) {
+            		return true;
+            	} 
+            	return false;
+        	} else if(consumerRecord.value() instanceof FoodOrder) {
+        		FoodOrder foodOrder = (FoodOrder) consumerRecord.value();
+        		if(foodOrder.getId() == 786) {
+            		return true;
+            	}
         		return false;
-        	}
+        	} 
+        	return false; // Keep the record if it's not a Customer or FoodOrder
         });
         
         return factory;
