@@ -4179,3 +4179,150 @@
 2025-03-13 13:55:40,829 [Worker-113: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
 2025-03-13 13:55:40,868 [Worker-113: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
 2025-03-13 13:55:40,870 [Worker-113: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Scheduling_Consumer_To_Run_Or_Not_Run_N20\src\test\resources
+2025-03-13 19:41:21,323 [Worker-141: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-13 19:41:21,372 [Worker-141: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-13 19:41:21,376 [Worker-141: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Scheduling_Consumer_To_Run_Or_Not_Run_N20\src\test\resources
+2025-03-13 21:19:49,493 [Worker-143: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: personal.learning:Kafka_Common_Error_Handler_N18:0.0.1-SNAPSHOT @ C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_N21\pom.xml.
+2025-03-13 21:20:03,832 [Worker-143: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-13 21:20:03,835 [Worker-143: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-13 21:20:03,841 [Worker-143: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_N21\src\test\resources
+2025-03-13 21:20:07,332 [Worker-146: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-13 21:20:07,338 [Worker-146: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-13 21:20:07,340 [Worker-146: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_N21\src\test\resources
+2025-03-14 00:17:09,486 [Worker-153: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-14 00:17:09,565 [Worker-153: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-14 00:17:09,568 [Worker-153: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_N21\src\test\resources
+2025-03-14 00:38:44,808 [Worker-155: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: personal.learning:Kafka_Common_Error_Handler_N18:0.0.1-SNAPSHOT @ C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_And_Message_Compression_N21\pom.xml.
+2025-03-14 00:38:54,067 [Worker-155: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-14 00:38:54,071 [Worker-155: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-14 00:38:54,074 [Worker-155: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_And_Message_Compression_N21\src\test\resources
+2025-03-14 00:38:57,654 [Worker-150: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-14 00:38:57,659 [Worker-150: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-14 00:38:57,662 [Worker-150: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_And_Message_Compression_N21\src\test\resources
+2025-03-14 00:39:20,426 [Worker-156: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: personal.learning:Kafka_Idempotent_Producer_And_Message_Compression_N21:0.0.1-SNAPSHOT @ C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_And_Message_Compression_N21\pom.xml.
+2025-03-14 00:39:25,062 [Worker-156: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-14 00:39:25,063 [Worker-156: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-14 00:39:25,067 [Worker-156: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_And_Message_Compression_N21\src\test\resources
+2025-03-14 00:54:09,533 [Worker-170: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-14 00:54:09,586 [Worker-170: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-14 00:54:09,588 [Worker-170: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_And_Message_Compression_N21\src\test\resources
+2025-03-14 00:54:30,932 [Worker-172: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-14 00:54:30,963 [Worker-172: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-14 00:54:30,966 [Worker-172: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_And_Message_Compression_N21\src\test\resources
+2025-03-14 00:57:29,972 [Worker-170: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-14 00:57:30,002 [Worker-170: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-14 00:57:30,004 [Worker-170: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_And_Message_Compression_N21\src\test\resources
+2025-03-14 00:57:35,735 [Worker-169: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-14 00:57:35,744 [Worker-169: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-14 00:57:35,761 [Worker-169: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_And_Message_Compression_N21\src\test\resources
+2025-03-14 17:29:52,073 [Worker-183: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-14 17:29:52,120 [Worker-183: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-14 17:29:52,123 [Worker-183: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Consumer_Offset_Commit_N13\src\test\resources
+2025-03-14 17:30:29,741 [Worker-184: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-14 17:30:29,759 [Worker-184: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-14 17:30:29,761 [Worker-184: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Consumer_Offset_Commit_N13\src\test\resources
+2025-03-14 17:42:46,682 [Worker-189: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-14 17:42:46,715 [Worker-189: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-14 17:42:46,718 [Worker-189: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Consumer_Offset_Commit_N13\src\test\resources
+2025-03-14 17:53:57,709 [Worker-187: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-14 17:53:57,723 [Worker-187: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-14 17:53:57,725 [Worker-187: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_And_Message_Compression_N21\src\test\resources
+2025-03-14 17:54:08,965 [Worker-197: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-14 17:54:08,998 [Worker-197: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-14 17:54:09,000 [Worker-197: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_And_Message_Compression_N21\src\test\resources
+2025-03-14 18:27:39,628 [Worker-201: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-14 18:27:39,655 [Worker-201: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-14 18:27:39,657 [Worker-201: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_And_Message_Compression_N21\src\test\resources
+2025-03-14 18:51:46,258 [Worker-210: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-14 18:51:46,322 [Worker-210: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-14 18:51:46,324 [Worker-210: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_And_Message_Compression_N21\src\test\resources
+2025-03-14 18:59:04,097 [Worker-213: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-14 18:59:04,111 [Worker-213: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-14 18:59:04,115 [Worker-213: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_And_Message_Compression_N21\src\test\resources
+2025-03-14 19:24:58,822 [Worker-218: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-14 19:24:58,849 [Worker-218: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-14 19:24:58,852 [Worker-218: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_And_Message_Compression_N21\src\test\resources
+2025-03-14 19:27:11,970 [Worker-216: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-14 19:27:11,983 [Worker-216: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-14 19:27:11,986 [Worker-216: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_And_Message_Compression_N21\src\test\resources
+2025-03-14 19:33:26,563 [Worker-209: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-14 19:33:26,592 [Worker-209: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-14 19:33:26,595 [Worker-209: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_And_Message_Compression_N21\src\test\resources
+2025-03-14 19:46:08,594 [Worker-228: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-14 19:46:08,605 [Worker-228: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-14 19:46:08,607 [Worker-228: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_And_Message_Compression_N21\src\test\resources
+2025-03-14 19:48:17,669 [Worker-224: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-14 19:48:17,681 [Worker-224: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-14 19:48:17,683 [Worker-224: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_And_Message_Compression_N21\src\test\resources
+2025-03-14 20:17:31,654 [Worker-227: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-14 20:17:31,668 [Worker-227: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-14 20:17:31,671 [Worker-227: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_And_Message_Compression_N21\src\test\resources
+2025-03-14 20:17:49,874 [Worker-232: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-14 20:17:49,888 [Worker-232: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-14 20:17:49,890 [Worker-232: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_And_Message_Compression_N21\src\test\resources
+2025-03-14 20:18:49,682 [Worker-230: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-14 20:18:49,797 [Worker-230: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-14 20:18:49,801 [Worker-230: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_And_Message_Compression_N21\src\test\resources
+2025-03-14 20:19:06,461 [Worker-232: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-14 20:19:06,473 [Worker-232: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-14 20:19:06,479 [Worker-232: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_And_Message_Compression_N21\src\test\resources
+2025-03-14 20:20:13,895 [Worker-227: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-14 20:20:13,909 [Worker-227: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-14 20:20:13,911 [Worker-227: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_And_Message_Compression_N21\src\test\resources
+2025-03-14 20:26:39,907 [Worker-234: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-14 20:26:39,921 [Worker-234: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-14 20:26:39,924 [Worker-234: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_And_Message_Compression_N21\src\test\resources
+2025-03-14 20:26:47,950 [Worker-227: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-14 20:26:47,958 [Worker-227: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-14 20:26:47,960 [Worker-227: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_And_Message_Compression_N21\src\test\resources
+2025-03-14 20:46:08,573 [Worker-239: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-14 20:46:08,601 [Worker-239: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-14 20:46:08,604 [Worker-239: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_And_Message_Compression_N21\src\test\resources
+2025-03-14 20:48:20,795 [Worker-239: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-14 20:48:20,805 [Worker-239: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-14 20:48:20,808 [Worker-239: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_And_Message_Compression_N21\src\test\resources
+2025-03-14 20:48:52,361 [Worker-238: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-14 20:48:52,382 [Worker-238: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-14 20:48:52,385 [Worker-238: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_And_Message_Compression_N21\src\test\resources
+2025-03-14 20:55:43,993 [Worker-242: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-14 20:55:44,005 [Worker-242: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-14 20:55:44,009 [Worker-242: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_And_Message_Compression_N21\src\test\resources
+2025-03-14 21:05:50,904 [Worker-247: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-14 21:05:50,924 [Worker-247: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-14 21:05:50,927 [Worker-247: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_And_Message_Compression_N21\src\test\resources
+2025-03-14 22:47:09,629 [Worker-252: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-14 22:47:09,645 [Worker-252: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-14 22:47:09,648 [Worker-252: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_And_Message_Compression_N21\src\test\resources
+2025-03-14 22:48:31,134 [Worker-250: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-14 22:48:31,158 [Worker-250: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-14 22:48:31,161 [Worker-250: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_And_Message_Compression_N21\src\test\resources
+2025-03-14 23:00:36,107 [Worker-260: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-14 23:00:36,120 [Worker-260: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-14 23:00:36,123 [Worker-260: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_And_Message_Compression_N21\src\test\resources
+2025-03-15 00:07:55,706 [Worker-266: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-15 00:07:55,749 [Worker-266: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-15 00:07:55,753 [Worker-266: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_And_Message_Compression_N21\src\test\resources
+2025-03-15 01:12:20,226 [Worker-276: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-15 01:12:20,286 [Worker-276: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-15 01:12:20,290 [Worker-276: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_And_Message_Compression_N21\src\test\resources
+2025-03-15 01:15:16,217 [Worker-279: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-15 01:15:16,246 [Worker-279: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-15 01:15:16,249 [Worker-279: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_And_Message_Compression_N21\src\test\resources
+2025-03-15 01:17:15,614 [Worker-283: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-15 01:17:15,627 [Worker-283: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-15 01:17:15,629 [Worker-283: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_And_Message_Compression_N21\src\test\resources
+2025-03-15 01:17:32,713 [Worker-275: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-15 01:17:32,724 [Worker-275: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-15 01:17:32,726 [Worker-275: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_And_Message_Compression_N21\src\test\resources
+2025-03-15 01:21:14,233 [Worker-278: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-15 01:21:14,245 [Worker-278: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-15 01:21:14,247 [Worker-278: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_And_Message_Compression_N21\src\test\resources
+2025-03-15 01:21:28,285 [Worker-286: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-15 01:21:28,296 [Worker-286: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-15 01:21:28,298 [Worker-286: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_And_Message_Compression_N21\src\test\resources
+2025-03-15 01:46:54,639 [Worker-297: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-15 01:46:54,672 [Worker-297: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-15 01:46:54,675 [Worker-297: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_And_Message_Compression_N21\src\test\resources
+2025-03-15 01:48:40,959 [Worker-297: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-03-15 01:48:40,982 [Worker-297: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-03-15 01:48:41,011 [Worker-297: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\DELL\Desktop\Kafka_Concepts\Kafka_Idempotent_Producer_And_Message_Compression_N21\src\test\resources

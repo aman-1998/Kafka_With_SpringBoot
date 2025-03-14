@@ -1,6 +1,15 @@
 package personal.learning.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import personal.learning.dto.Customer;
+import personal.learning.dto.FoodOrder;
+import personal.learning.publisher.MessagePublisher;
 
 /*
  * Steps to test the application
@@ -22,16 +31,6 @@ import org.springframework.beans.factory.annotation.Autowired;
  * 6. During this entire time CustomerConsumer will continue 
  * 	  receiving messages.
  */
-
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
-
-import personal.learning.dto.Customer;
-import personal.learning.dto.FoodOrder;
-import personal.learning.publisher.MessagePublisher;
 
 @RestController
 public class KafkaController {
