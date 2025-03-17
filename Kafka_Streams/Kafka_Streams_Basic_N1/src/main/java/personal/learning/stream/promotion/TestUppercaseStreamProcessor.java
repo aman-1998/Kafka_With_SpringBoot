@@ -18,11 +18,11 @@ public class TestUppercaseStreamProcessor {
 	public String testUppercaseTopic;
 	
 	@Bean
-	public KStream<String, String> kStreamCustomerUpperCase(StreamsBuilder builder) {
+	public KStream<String, String> kStreamUpperCase(StreamsBuilder builder) {
 		KStream<String, String> sourceStream = builder.stream(testTopic, 
 				Consumed.with(Serdes.String(), Serdes.String()));
 		
-		KStream<String, String> upperCaseStream = sourceStream.mapValues(promotion -> promotion.toUpperCase());
+		KStream<String, String> upperCaseStream = sourceStream.mapValues(sentence -> sentence.toUpperCase());
 		
 		upperCaseStream.to(testUppercaseTopic);
 		

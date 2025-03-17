@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import personal.learning.dto.Customer;
 import personal.learning.publisher.MessagePublisher;
 
 @RestController
@@ -15,11 +16,11 @@ public class KafkaController {
 	@Autowired
 	private MessagePublisher messagePublisher;
 	
-	@PostMapping("/send")
-	public ResponseEntity<?> send(@RequestBody String message) {
+	@PostMapping("/send1")
+	public ResponseEntity<?> send(@RequestBody Customer message) {
 		try {
-			System.out.println("Sentence -> " + message);
-			messagePublisher.sendMessage(message);
+			System.out.println("Customer -> " + message);
+			messagePublisher.sendMessageCustomer(message);
 			return ResponseEntity.ok("Message sent successfully...");
 		} catch(Exception ex) {
 			System.out.println("Exception occurred: " + ex.getMessage());
