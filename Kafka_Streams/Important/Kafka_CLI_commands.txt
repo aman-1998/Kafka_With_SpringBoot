@@ -1,0 +1,193 @@
+===================================
+Open Source Kafka Startup in local
+===================================
+
+1.Start Zookeeper Server
+------------------------
+Linix:
+sh bin/zookeeper-server-start.sh config/zookeeper.properties
+
+Windows:
+bin\windows\zookeeper-server-start.bat config\zookeeper.properties
+
+
+2.Start Kafka Server / Broker
+-----------------------------
+Linix:
+sh bin/kafka-server-start.sh config/server.properties
+
+Windows:
+bin\windows\kafka-server-start.bat config\server.properties
+
+
+3.Create topic
+--------------
+Linux:
+sh bin/kafka-topics.sh --bootstrap-server localhost:9092 --create --topic NewTopic --partitions 3 --replication-factor 1
+
+Windows:
+bin\windows\kafka-topics.bat --bootstrap-server localhost:9092 --create --topic NewTopic --partitions 3 --replication-factor 1
+
+
+4.list out all topic names
+--------------------------
+Linux:
+sh bin/kafka-topics.sh --bootstrap-server localhost:9092 --list
+
+Windows:
+bin\windows\kafka-topics.bat --bootstrap-server localhost:9092 --list
+
+
+5.Describe topics
+-----------------
+Linux:
+sh bin/kafka-topics.sh --bootstrap-server localhost:9092 --describe --topic NewTopic
+
+Windows:
+bin\windows\kafka-topics.bat --bootstrap-server localhost:9092 --describe --topic NewTopic
+
+
+6.Produce message
+-----------------
+Linux:
+sh bin/kafka-console-producer.sh --broker-list localhost:9092 --topic NewTopic
+sh bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic NewTopic
+sh bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --producer-property partitioner.class=org.apache.kafka.clients.producer.RoundRobinPartitioner --topic NewTopic
+
+Windows:
+bin\windows\kafka-console-producer.bat --broker-list localhost:9092 --topic NewTopic
+bin\windows\kafka-console-producer.bat --bootstrap-server localhost:9092 --topic NewTopic
+bin\windows\kafka-console-producer.bat --bootstrap-server localhost:9092 --producer-property partitioner.class=org.apache.kafka.clients.producer.RoundRobinPartitioner --topic NewTopic
+
+
+7.Produce message with acks
+----------------------------
+Linux:
+sh bin/kafka-console-producer.sh --broker-list localhost:9092 --topic NewTopic --producer-property acks=all
+sh bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic NewTopic --producer-property acks=all
+
+Windows:
+bin\windows\kafka-console-producer.bat --broker-list localhost:9092 --topic NewTopic --producer-property acks=all
+bin\windows\kafka-console-producer.bat --bootstrap-server localhost:9092 --topic NewTopic --producer-property acks=all
+
+
+8.Produce message with keys:
+----------------------------
+Linux:
+sh bin/kafka-console-producer.sh --broker-list localhost:9092 --topic NewTopic --property parse.key=true --property key.separator=:
+sh bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic NewTopic --property parse.key=true --property key.separator=:
+
+Windows:
+bin\windows\kafka-console-producer.bat --broker-list localhost:9092 --topic NewTopic --property parse.key=true --property key.separator=:
+bin\windows\kafka-console-producer.bat --bootstrap-server localhost:9092 --topic NewTopic --property parse.key=true --property key.separator=:
+
+
+9.Consume message
+-----------------
+Linux:
+sh bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic NewTopic --from-beginning
+
+Windows:
+bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic NewTopic --from-beginning
+
+
+10.Delete topic
+---------------
+Linux:
+sh bin/kafka-topics.bat --bootstrap-server localhost:9092 --topic NewTopic --delete
+
+Windows:
+bin\windows\kafka-topics.bat --bootstrap-server localhost:9092 --topic NewTopic --delete
+
+
+11.Consumer Group
+-----------------
+Linux:
+sh bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic NewTopic --group Group1
+sh bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic NewTopic --group Group1 --from-beginning
+
+Windows:
+bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic NewTopic --group Group1
+bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic NewTopic --group Group1 --from-beginning
+
+
+12.List consumer groups
+-----------------------
+Linux:
+sh bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --list
+
+Windows:
+bin\windows\kafka-consumer-groups.bat --bootstrap-server localhost:9092 --list
+
+
+13.Describe a consumer group:
+-----------------------------
+Linux:
+sh bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --group Group1
+
+Windows:
+bin\windows\kafka-consumer-groups.bat --bootstrap-server localhost:9092 --describe --group Group1
+
+
+14.Resetting offsets
+--------------------
+Linux:
+sh bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group Group1 --reset-offsets --to-earliest --topic NewTopic --dry-run
+sh bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group Group1 --reset-offsets --to-earliest --topic NewTopic --execute
+
+Windows:
+bin\windows\kafka-consumer-groups.bat --bootstrap-server localhost:9092 --group Group1 --reset-offsets --to-earliest --topic NewTopic --dry-run
+bin\windows\kafka-consumer-groups.bat --bootstrap-server localhost:9092 --group Group1 --reset-offsets --to-earliest --topic NewTopic --execute
+
+
+===========================================
+Confluent Kafka Community Edition in local
+===========================================
+
+1.Start Zookeeper Server
+------------------------
+Linux:
+bin/zookeeper-server-start etc/kafka/zookeeper.properties
+
+Windows:
+bin\windows\zookeeper-server-start.bat etc\kafka\zookeeper.properties
+
+
+2.Start Kafka Server / Broker
+-----------------------------
+Linux:
+bin/kafka-server-start etc/kafka/server.properties
+
+Windows:
+bin\windows\kafka-server-start.bat etc/kafka/server.properties
+
+
+3.Create topic
+--------------
+
+bin/kafka-topics --bootstrap-server localhost:9092 --create --topic NewTopic1 --partitions 3 --replication-factor 1
+
+4.list out all topic names
+--------------------------
+
+bin/kafka-topics --bootstrap-server localhost:9092 --list
+
+5.Describe topics
+-----------------
+
+bin/kafka-topics --bootstrap-server localhost:9092 --describe --topic NewTopic1
+
+6.Produce message
+-----------------
+
+bin/kafka-console-producer --broker-list localhost:9092 --topic NewTopic1
+
+7.consume message
+-----------------
+
+bin/kafka-console-consumer --bootstrap-server localhost:9092 --topic NewTopic1 --from-beginning 
+
+8.Send CSV File data to kafka
+-----------------------------
+
+bin/kafka-console-producer --broker-list localhost:9092 --topic NewTopic1 <bin/customers.csv
