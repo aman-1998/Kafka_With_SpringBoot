@@ -4,7 +4,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
-import personal.learning.consumer.MaskedCreditCardConsumer;
+import personal.learning.consumer.OrderRewardConsumer;
+import personal.learning.consumer.OrderStorageConsumer;
+import personal.learning.consumer.OrderSummaryConsumer;
 import personal.learning.publisher.MessagePublisher;
 
 @Configuration
@@ -17,8 +19,18 @@ public class AppConfig {
 	}
 	
 	@Bean
-	public MaskedCreditCardConsumer messageConsumer() {
-		return new MaskedCreditCardConsumer();
+	public OrderRewardConsumer orderRewardConsumer() {
+		return new OrderRewardConsumer();
+	}
+	
+	@Bean
+	public OrderStorageConsumer orderStorageConsumer() {
+		return new OrderStorageConsumer();
+	}
+	
+	@Bean
+	public OrderSummaryConsumer orderSummaryConsumer() {
+		return new OrderSummaryConsumer();
 	}
 	
 }

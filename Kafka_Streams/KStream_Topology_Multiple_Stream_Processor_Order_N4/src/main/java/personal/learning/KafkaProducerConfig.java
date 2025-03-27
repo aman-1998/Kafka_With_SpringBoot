@@ -23,14 +23,38 @@ public class KafkaProducerConfig {
 	@Value("${test.topic.order.masked.creditcard}")
 	public String orderMaskedCreditCardTopic;
 	
+	@Value("${test.topic.order.summary}")
+	public String orderSummaryTopic;
+	
+	@Value("${test.topic.order.reward}")
+	public String orderRewardTopic;
+	
+	@Value("${test.topic.order.storage}")
+	public String orderStorageTopic;
+	
 	@Bean
-	public NewTopic testTopic() {
+	public NewTopic orderTopic() {
 		return new NewTopic(orderTopic, 3, (short)1);
 	}
 	
 	@Bean
-	public NewTopic testUppercaseTopic() {
+	public NewTopic orderMaskedCreditCardTopic() {
 		return new NewTopic(orderMaskedCreditCardTopic, 3, (short)1);
+	}
+	
+	@Bean
+	public NewTopic orderSummaryTopic() {
+		return new NewTopic(orderSummaryTopic, 3, (short)1);
+	}
+	
+	@Bean
+	public NewTopic orderRewardTopic() {
+		return new NewTopic(orderRewardTopic, 3, (short)1);
+	}
+	
+	@Bean
+	public NewTopic orderStorageTopic() {
+		return new NewTopic(orderStorageTopic, 3, (short)1);
 	}
 	
 	public ProducerFactory<String, Object> producerFactory() {

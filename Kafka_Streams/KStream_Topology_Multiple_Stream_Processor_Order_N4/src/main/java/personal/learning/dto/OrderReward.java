@@ -1,23 +1,16 @@
 package personal.learning.dto;
 
-import java.io.Serializable;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Order implements Serializable {
-	
-	private static final long serialVersionUID = 1L;
+public class OrderReward {
 	
 	@JsonProperty("orderId")
 	private int orderId;
 	
 	@JsonProperty("orderLocation")
 	private String orderLocation;
-	
-	@JsonProperty("creditCardNumber")
-	private String creditCardNumber;
 	
 	@JsonProperty("orderDateTime")
 	private String orderDateTime;
@@ -31,13 +24,12 @@ public class Order implements Serializable {
 	@JsonProperty("quantity")
 	private int quantity;
 	
-	public Order() {}
+	public OrderReward() {}
 
-	public Order(int orderId, String orderLocation, String creditCardNumber, 
-				 String orderDateTime, String itemName, String price, int quantity) {
+	public OrderReward(int orderId, String orderLocation, String orderDateTime, 
+			String itemName, String price, int quantity) {
 		this.orderId = orderId;
 		this.orderLocation = orderLocation;
-		this.creditCardNumber = creditCardNumber;
 		this.orderDateTime = orderDateTime;
 		this.itemName = itemName;
 		this.price = price;
@@ -58,14 +50,6 @@ public class Order implements Serializable {
 
 	public void setOrderLocation(String orderLocation) {
 		this.orderLocation = orderLocation;
-	}
-
-	public String getCreditCardNumber() {
-		return creditCardNumber;
-	}
-
-	public void setCreditCardNumber(String creditCardNumber) {
-		this.creditCardNumber = creditCardNumber;
 	}
 
 	public String getOrderDateTime() {
@@ -102,9 +86,9 @@ public class Order implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Order [orderId=" + orderId + ", orderLocation=" + orderLocation + ", creditCardNumber="
-				+ creditCardNumber + ", orderDateTime=" + orderDateTime + ", itemName=" + itemName + ", price=" + price
-				+ ", quantity=" + quantity + "]";
+		return "OrderReward [orderId=" + orderId + ", orderLocation=" + orderLocation + ", orderDateTime="
+				+ orderDateTime + ", itemName=" + itemName + ", price=" + price + ", quantity=" + quantity + "]";
 	}
 	
+	 
 }
