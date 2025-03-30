@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>personal.learning</groupId>
-	<artifactId>KStream_Topology_Multiple_Stream_Processor_Order_N4</artifactId>
+	<artifactId>KStream_Topology_Multiple_Stream_Processor_For_Order_N4</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>KStream_Topology_Multiple_Stream_Processor_Order_N4</name>
+	<name>KStream_Topology_Multiple_Stream_Processor_For_Order_N4</name>
 	<description>Learning Kafka</description>
 	<properties>
 		<java.version>17</java.version>
