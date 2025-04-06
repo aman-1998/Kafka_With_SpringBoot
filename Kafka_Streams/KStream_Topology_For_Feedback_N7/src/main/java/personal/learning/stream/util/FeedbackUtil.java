@@ -14,11 +14,4 @@ public class FeedbackUtil {
 											          "amazing", "satisfied", "satisfy", 
 											          "happy", "great", "love");
 	
-	public static ValueMapper<Feedback, Iterable<String>> mapperPositiveWords() {
-		
-		return feedback -> Arrays.asList(feedback.getComment().toLowerCase().split("\\s+"))
-								 .stream().filter(word -> POSITIVE_WORDS.contains(word))
-								 .collect(Collectors.toList());
-	}
-
 }
