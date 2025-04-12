@@ -6,6 +6,8 @@ import org.springframework.context.annotation.Configuration;
 
 import personal.learning.consumer.NegativeWordsConsumer;
 import personal.learning.consumer.NegativeWordsCountConsumer;
+import personal.learning.consumer.OverallBadWordCountConsumer;
+import personal.learning.consumer.OverallGoodWordCountConsumer;
 import personal.learning.consumer.PositiveWordsConsumer;
 import personal.learning.consumer.PositiveWordsCountConsumer;
 import personal.learning.publisher.MessagePublisher;
@@ -37,6 +39,16 @@ public class AppConfig {
 	@Bean
 	public PositiveWordsCountConsumer positiveWordsCountConsumer() {
 		return new PositiveWordsCountConsumer();
+	}
+	
+	@Bean
+	public OverallBadWordCountConsumer overallBadWordCountConsumer() {
+		return new OverallBadWordCountConsumer();
+	}
+	
+	@Bean
+	public OverallGoodWordCountConsumer overallGoodWordCountConsumer() {
+		return new OverallGoodWordCountConsumer();
 	}
 	
 }

@@ -11,11 +11,12 @@ public class PositiveWordsConsumer {
 	@KafkaListener(id = "myListener4", topics = "${test.topic.positive.word}", groupId = "${test.group.feedback}", 
 		   	   autoStartup = "true", containerFactory = "kafkaListenerContainerFactory2")
 	public void consume(String message, @Header(name = KafkaHeaders.RECEIVED_TOPIC, required = false) String topic, 
-										  @Header(name = KafkaHeaders.RECEIVED_PARTITION, required = false) int partition,
-										  @Header(name = KafkaHeaders.OFFSET, required = false) long offset) 
-										  throws Exception {
-										  // @Headers Map<String, Object> header) {
-		System.out.println("====> Message received by PositiveWordsConsumer: " + message);
+										@Header(name = KafkaHeaders.RECEIVED_PARTITION, required = false) int partition,
+										@Header(name = KafkaHeaders.OFFSET, required = false) long offset,
+										@Header(name = KafkaHeaders.RECEIVED_KEY, required = false) String key) 
+										throws Exception {
+										// @Headers Map<String, Object> header) {
+		System.out.println("====> Message received by PositiveWordsConsumer: key=" + key + ", value=" + message);
 		System.out.println("====> Source topic : " + topic);
 		System.out.println("====> Source partition : " + partition);
 		System.out.println("====> Source offset : " + offset);

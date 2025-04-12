@@ -1,7 +1,5 @@
 package personal.learning.stream.processor;
 
-import java.util.Arrays;
-
 import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.StreamsBuilder;
 import org.apache.kafka.streams.kstream.Branched;
@@ -49,18 +47,6 @@ public class FeedbackStreamProcessor {
 		
 		sourceStream.split().branch(FeedbackUtil.isGoodFeedback(), Branched.<String, Feedback>withConsumer(ks -> ks.to(goodFeedbackTopic)))
 						    .branch(FeedbackUtil.isBadFeedback(), Branched.<String, Feedback>withConsumer(ks -> ks.to(badFeedbackTopic)));
-							
-		
-		KStream<String, Feedback> goodFeedbackStream = sourceStream.filter((key, feedback) -> {
-			
-			long noOfPositiveWords = Arrays.asList(feedback.getComment().toLowerCase().split("\\s+"))
-										   .stream().distinct()
-										   .filter(word -> FeedbackUtil.POSITIVE_WORDS.contains(word))
-										   .count();
-			
-			return noOfPositiveWords > 0 ? true : false;
-			
-		});
 		
 	}
 }

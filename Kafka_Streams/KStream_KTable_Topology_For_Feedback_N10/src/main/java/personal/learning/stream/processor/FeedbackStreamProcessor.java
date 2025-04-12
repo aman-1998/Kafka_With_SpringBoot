@@ -32,6 +32,12 @@ public class FeedbackStreamProcessor {
 	@Value("${test.topic.negative.word.count}")
 	public String negativeWordCountTopic;
 	
+	@Value("${test.topic.overall.good.word.count}")
+	public String overallGoodWordCountTopic;
+	
+	@Value("${test.topic.overall.bad.word.count}")
+	public String overallBadWordCountTopic;
+	
 	@Autowired
 	public void processFeedback(StreamsBuilder builder) {
 		JsonSerde<Feedback> feedbackSerde = new JsonSerde<>(Feedback.class);
@@ -44,11 +50,15 @@ public class FeedbackStreamProcessor {
 				ks.to(positiveWordTopic);
 				ks.groupByKey().count().toStream().to(positiveWordCountTopic, 
 													  Produced.with(Serdes.String(), Serdes.Long()));
+				ks.groupBy((key, goodWord) -> goodWord).count().toStream().to(overallGoodWordCountTopic, 
+																			  Produced.with(Serdes.String(), Serdes.Long()));
 		})).branch(FeedbackUtil.isBad(), 
 			Branched.<String, String>withConsumer(ks -> {
 				ks.to(negativeWordTopic);
 				ks.groupByKey().count().toStream().to(negativeWordCountTopic, 
-													  Produced.with(Serdes.String(), Serdes.Long()));	
+													  Produced.with(Serdes.String(), Serdes.Long()));
+				ks.groupBy((key, badWord) -> badWord).count().toStream().to(overallBadWordCountTopic, 
+						  													Produced.with(Serdes.String(), Serdes.Long()));
 		}));
 		
 	}

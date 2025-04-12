@@ -32,6 +32,12 @@ public class KafkaProducerConfig {
 	@Value("${test.topic.negative.word.count}")
 	public String negativeWordCountTopic;
 	
+	@Value("${test.topic.overall.good.word.count}")
+	public String overallGoodWordCountTopic;
+	
+	@Value("${test.topic.overall.bad.word.count}")
+	public String overallBadWordCountTopic;
+	
 	@Bean
 	public NewTopic feedbackTopic() {
 		return new NewTopic(feedbackTopic, 3, (short)1);
@@ -55,6 +61,16 @@ public class KafkaProducerConfig {
 	@Bean
 	public NewTopic negativeWordCountTopic() {
 		return new NewTopic(negativeWordCountTopic, 3, (short)1);
+	}
+	
+	@Bean
+	public NewTopic overallGoodWordCountTopic() {
+		return new NewTopic(overallGoodWordCountTopic, 3, (short)1);
+	}
+	
+	@Bean
+	public NewTopic overallBadWordCountTopic() {
+		return new NewTopic(overallBadWordCountTopic, 3, (short)1);
 	}
 	
 	public ProducerFactory<String, Object> producerFactory() {
