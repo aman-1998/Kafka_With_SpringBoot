@@ -7,23 +7,23 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
 
-import personal.learning.dto.CustomerShopingCart;
-import personal.learning.dto.CustomerWishlist;
+import personal.learning.dto.Humidity;
+import personal.learning.dto.Precipitation;
 
 public class MessagePublisher {
 	
-	@Value("${test.topic.shopping.cart}")
-	public String shoppingCartTopic;
+	@Value("${test.topic.humidity}")
+	public String humidityTopic;
 	
-	@Value("${test.topic.wishlist}")
-	public String wishListTopic;
+	@Value("${test.topic.precipitation}")
+	public String precipitationTopic;
 	
 	@Autowired
 	private KafkaTemplate<String, Object> kafkaTemplate;
 	
-	public void sendShoppingCartMessage(CustomerShopingCart message) {
+	public void sendHumidityMsg(Humidity message) {
 		
-		CompletableFuture<SendResult<String, Object>> future = kafkaTemplate.send(shoppingCartTopic, message.getLocation(), message);
+		CompletableFuture<SendResult<String, Object>> future = kafkaTemplate.send(humidityTopic, message.getLocation(), message);
 		future.whenComplete((result, ex) -> {
 			if(ex == null) {
 				System.out.println("~~~~~~> Sent message: " + message);
@@ -38,9 +38,9 @@ public class MessagePublisher {
 		});
 	}
 	
-	public void sendWishlistMessage(CustomerWishlist message) {
+	public void sendPrecipitationMsg(Precipitation message) {
 		
-		CompletableFuture<SendResult<String, Object>> future = kafkaTemplate.send(wishListTopic, message.getLocation(), message);
+		CompletableFuture<SendResult<String, Object>> future = kafkaTemplate.send(precipitationTopic, message.getLocation(), message);
 		future.whenComplete((result, ex) -> {
 			if(ex == null) {
 				System.out.println("~~~~~~> Sent message: " + message);

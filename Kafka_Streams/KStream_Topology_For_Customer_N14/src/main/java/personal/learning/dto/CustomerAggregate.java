@@ -1,12 +1,13 @@
 package personal.learning.dto;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class CustomerAggregate {
 	
-	private Map<String, String> shoppingCartItems;
+	private Map<String, String> shoppingCartItems = new HashMap<>();
 	
-	private Map<String, String> whishListItems;
+	private Map<String, String> whishListItems = new HashMap<>();
 	
 	public CustomerAggregate(Map<String, String> shoppingCartItems, 
 			Map<String, String> whishListItems) {
