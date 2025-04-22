@@ -3,10 +3,16 @@ package personal.learning.dto;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class CustomerAggregate {
 	
+	@JsonProperty("shoppingCartItems")
 	private Map<String, String> shoppingCartItems = new HashMap<>();
 	
+	@JsonProperty("whishListItems")
 	private Map<String, String> whishListItems = new HashMap<>();
 	
 	public CustomerAggregate(Map<String, String> shoppingCartItems, 

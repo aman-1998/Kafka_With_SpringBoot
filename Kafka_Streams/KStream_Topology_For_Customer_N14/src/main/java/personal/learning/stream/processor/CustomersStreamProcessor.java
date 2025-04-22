@@ -6,6 +6,7 @@ import org.apache.kafka.streams.kstream.Consumed;
 import org.apache.kafka.streams.kstream.KGroupedStream;
 import org.apache.kafka.streams.kstream.KStream;
 import org.apache.kafka.streams.kstream.Materialized;
+import org.apache.kafka.streams.kstream.Produced;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.support.serializer.JsonSerde;
@@ -50,6 +51,6 @@ public class CustomersStreamProcessor {
 								 .aggregate(() -> new CustomerAggregate(), Materialized.with(Serdes.String(), customerAggregateSerde))
 								 .toStream();
 		
-		customerAggregateStream.to(aggregateTopic);
+		customerAggregateStream.to(aggregateTopic, Produced.with(Serdes.String(), customerAggregateSerde));
 	}
 }
