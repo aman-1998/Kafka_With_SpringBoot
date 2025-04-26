@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>personal.learning</groupId>
-	<artifactId>KStream_Streams_For_Voting_N16</artifactId>
+	<artifactId>Kafka_Streams_For_Order_N4</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>KStream_Streams_For_Voting_N16</name>
+	<name>Kafka_Streams_For_Order_N4</name>
 	<description>Learning Kafka</description>
 	<properties>
 		<java.version>17</java.version>
