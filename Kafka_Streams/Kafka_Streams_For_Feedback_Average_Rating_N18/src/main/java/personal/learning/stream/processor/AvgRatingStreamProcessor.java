@@ -37,14 +37,19 @@ public class AvgRatingStreamProcessor {
 		
 		JsonSerde<TotalRatingCount> totalRatingCountSerde = new JsonSerde<>(TotalRatingCount.class);
 		String totalRatingCountStateStoreName = "totalRatingCountStateStore";
-		KeyValueBytesStoreSupplier kayValueStoreSupplier = Stores.inMemoryKeyValueStore(totalRatingCountStateStoreName);
-		StoreBuilder<KeyValueStore<String, TotalRatingCount>> keyValueStoreBuilder = Stores.keyValueStoreBuilder(kayValueStoreSupplier, 
-																							stringSerde, totalRatingCountSerde);
-		builder.addStateStore(keyValueStoreBuilder);
+		//KeyValueBytesStoreSupplier kayValueStoreSupplier = Stores.inMemoryKeyValueStore(totalRatingCountStateStoreName);
+		KeyValueBytesStoreSupplier persistentKeyValueStore = Stores.persistentKeyValueStore(totalRatingCountStateStoreName);
+		StoreBuilder<KeyValueStore<String, TotalRatingCount>> storeBuilder = Stores.keyValueStoreBuilder(
+													persistentKeyValueStore,
+												    stringSerde,
+												    totalRatingCountSerde);
+		
+		builder.addStateStore(storeBuilder);
 		
 		KStream<String, AvgFeedbackRating> avgFeedbackRatingStream = builder.stream(feedbackTopic, Consumed.with(stringSerde, feedbackSerde))
-																	   .processValues(() -> new AvgRatingProcessor(totalRatingCountStateStoreName));
+																	   .processValues(() -> new AvgRatingProcessor(totalRatingCountStateStoreName), totalRatingCountStateStoreName);
 		
 		avgFeedbackRatingStream.to(averageRatingTopic, Produced.with(Serdes.String(), avgFeedbackRatingSerde));
+		
 	}
 }

@@ -36,7 +36,7 @@ public class AvgRatingProcessor implements FixedKeyProcessor<String, Feedback, A
 	@Override
 	public void process(FixedKeyRecord<String, Feedback> record) {
 		Feedback orginalFeedback = record.value();
-		TotalRatingCount totalRatingCount = Optional.ofNullable(ratingStateStore.get(stateStoreName))
+		TotalRatingCount totalRatingCount = Optional.ofNullable(ratingStateStore.get(orginalFeedback.getLocation()))
 												    .orElse(new TotalRatingCount());
 		int newSumOfRating = totalRatingCount.getSumOfRating() + orginalFeedback.getRating();
 		int newCountOfRating = totalRatingCount.getCountOfRating() + 1;
@@ -47,7 +47,7 @@ public class AvgRatingProcessor implements FixedKeyProcessor<String, Feedback, A
 		
 		AvgFeedbackRating avgFeedbackRating = new AvgFeedbackRating();
 		avgFeedbackRating.setLocation(orginalFeedback.getLocation());
-		avgFeedbackRating.setAvgRating(Math.round((double)newCountOfRating/newCountOfRating));
+		avgFeedbackRating.setAvgRating(Math.round((double)newSumOfRating/newCountOfRating * 10.0) / 10.0);
 		
 		processorContext.forward(record.withValue(avgFeedbackRating));
 	}

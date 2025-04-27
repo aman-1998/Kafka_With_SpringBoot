@@ -1,11 +1,18 @@
 package personal.learning.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Feedback {
 	
+	@JsonProperty("location")
 	private String location;
 	
+	@JsonProperty("rating")
 	private int rating;
 	
+	@JsonProperty("comment")
 	private String comment;
 
 	public Feedback() {}
